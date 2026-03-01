@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* Animated underline effect for navbar */
+@keyframes expandUnderline {
+  from {
+    width: 0%;
+    left: 50%;
+  }
+  to {
+    width: 100%;
+    left: 0%;
+  }
+}
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background-size: 200% 100%;
+  transition: all 0.3s ease;
+  animation: expandUnderline 0.4s ease forwards;
+}
+
+.nav-link.inactive::after {
+  animation: none;
+  width: 0%;
+  left: 50%;
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background-size: 200% 100%;
+}
